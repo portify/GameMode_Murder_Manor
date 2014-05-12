@@ -30,7 +30,7 @@ function GameConnection::updateMurderStatus(%this)
   %timeElapsed = getSimTime() - %miniGame.lastResetTime;
   %timeRemaining = getMax(%miniGame.timeLimit - (%timeElapsed / 1000), 0);
 
-  %factor = %timeRemaining / %miniGame.timeLimit;
+  %factor = getMin(1, %timeRemaining / %miniGame.timeLimit);
 
   if (%factor >= 0.99)
   {
