@@ -1,0 +1,207 @@
+// Music
+MUSIC Ambiance_Camp_Fire
+MUSIC Ambiance_Darkness
+MUSIC Ambiance_Fire
+MUSIC Ambiance_Heavy_Rain
+MUSIC Ambiance_High_Wind
+MUSIC Ambiance_Light_Ocean
+MUSIC Ambiance_Light_Rain
+MUSIC Ambiance_Light_Wind
+MUSIC Ambiance_Ocean_Rocks
+MUSIC Ambiance_Rain
+MUSIC Ambiance_River
+MUSIC Ambiance_Stream
+MUSIC Ambiance_Underwater
+MUSIC Ambiance_Wet_Cave
+MUSIC Ambiance_Whispers
+MUSIC Ambiance_Wind
+
+// Add-Ons
+ADDON Server_Hatmod
+ADDON Script_Footsteps
+
+ADDON Emote_Alarm
+ADDON Emote_Confusion
+ADDON Emote_Hate
+ADDON Emote_Love
+ADDON Projectile_GravityRocket
+ADDON Projectile_Pinball
+ADDON Projectile_Pong
+ADDON Projectile_Radio_Wave
+ADDON Vehicle_Ball
+ADDON Vehicle_Flying_Wheeled_Jeep
+ADDON Vehicle_Horse
+ADDON Vehicle_Jeep
+ADDON Vehicle_Magic_Carpet
+ADDON Vehicle_Tank
+ADDON Vehicle_Pirate_Cannon
+ADDON Vehicle_Rowboat
+ADDON Weapon_Bow
+ADDON Weapon_Gun
+ADDON Weapon_Guns_Akimbo
+ADDON Weapon_Horse_Ray
+ADDON Weapon_Push_Broom
+ADDON Weapon_Rocket_Launcher
+ADDON Weapon_Spear
+ADDON Weapon_Sword
+
+// Entropy Manor Add-Ons
+ADDON Bot_Blockhead
+ADDON Bot_Hole
+ADDON Bot_Zombie
+ADDON Bot_Shark
+ADDON Brick_1RandomPack
+ADDON Brick_1x2Uneven
+ADDON Brick_4x4fPrintPlateC
+ADDON Brick_Arch
+ADDON Brick_BaseBricks
+ADDON Brick_Bevel
+ADDON Brick_Books
+ADDON Brick_Christmas_Tree
+ADDON Brick_Curtain
+ADDON Brick_DecorativeBlocks
+ADDON Brick_Doors
+ADDON Brick_ExtraRamps
+ADDON Brick_Fence
+ADDON Brick_GlassPanes
+ADDON Brick_GrillPlate
+ADDON Brick_Halloween
+ADDON Brick_HorizPoles
+ADDON Brick_HorizRound
+ADDON Brick_InvertedCorners
+ADDON Brick_Large_Cubes
+ADDON Brick_LongRangeMusic
+ADDON Brick_MiscellaneousPack
+ADDON Brick_ModTer_BasicPack
+ADDON Brick_ModTer_InvertedPack
+ADDON Brick_PoleAdapters
+ADDON Brick_Poster_8x
+ADDON Brick_Print_Icons
+ADDON Brick_PrintBaseplates
+ADDON Brick_PrintBaseplatesCeiling
+ADDON Brick_PrintBaseplatesExt
+ADDON Brick_PrintBricks
+ADDON Brick_PrintCubes
+ADDON Brick_PrintPlatesCeiling
+ADDON Brick_Round_Corners
+ADDON Brick_ShortRangeMusic
+ADDON Brick_SmallRampsPack
+ADDON Brick_SmallVehicleSpawnSet
+ADDON Brick_Spiderwebs
+ADDON Brick_Teledoor
+ADDON Brick_ThickPoles
+ADDON Brick_Treasure_Chest
+ADDON Brick_V15
+ADDON Brick_VerticalPlatePack
+ADDON Brick_Wedge
+ADDON Brick_WedgePlus
+ADDON Brick_WedgePrint
+ADDON Brick_Window
+ADDON Brick_V15
+ADDON Event_playSound
+ADDON Light_Ambient
+ADDON Light_Animated
+ADDON Light_Basic
+ADDON Light_Candle
+ADDON Particle_Basic
+ADDON Particle_Candle
+ADDON Particle_CasualBuild
+ADDON Particle_FoggyBuild
+ADDON Particle_Grass
+ADDON Particle_Player
+ADDON Particle_Tools
+ADDON Particle_WeatherBuild
+ADDON Print_1x1_Posters
+ADDON Print_1x2f_BLPRemote
+ADDON Print_1x2f_Default
+ADDON Print_2x2f_BooksN
+ADDON Print_2x2f_Default
+ADDON Print_2x2f_Flooring
+ADDON Print_2x2f_JG_Crate
+ADDON Print_2x2f_Papers
+ADDON Print_2x2f_Portraits
+ADDON Print_2x2r_Default
+ADDON Print_2x2r_Monitor3
+ADDON Print_Letters_Default
+ADDON Print_ModTer_Default
+ADDON Sound_Beeps
+ADDON Sound_Doors_Amnesia
+ADDON Sound_Phone
+ADDON Sound_PM
+ADDON Sound_SPK
+ADDON Sound_SSBM
+ADDON Sound_Synth4
+ADDON Support_Doors
+ADDON Support_Player_Persistence
+
+// Game-Mode
+ADDON GameMode_Murder_Manor
+
+// Environment
+$EnvGuiServer::SimpleMode 0
+$EnvGuiServer::SkyFile Add-Ons/Sky_TF2/Stormfront.dml
+$EnvGuiServer::WaterFile NONE
+$EnvGuiServer::GroundFile Add-Ons/Ground_Plate/plate.ground
+
+$EnvGuiServer::SunFlareTopTexture base/lighting/corona.png
+$EnvGuiServer::SunFlareBottomTexture base/lighting/lightFalloffMono.png
+$EnvGuiServer::DayOffset 
+$EnvGuiServer::DayLength 200
+$EnvGuiServer::DayCycleEnabled 1
+$EnvGuiServer::DayCycle Add-Ons/DayCycle_youse/youse.daycycle
+$EnvGuiServer::SunAzimuth 0
+$EnvGuiServer::SunElevation 17.7551
+$EnvGuiServer::DirectLightColor 0.046729 0.046729 0.056075 1.000000
+$EnvGuiServer::AmbientLightColor 0.635514 0.630841 0.635514 1.000000
+$EnvGuiServer::ShadowColor 0.537383 0.556075 0.546729 1.000000
+$EnvGuiServer::SunFlareColor 0.100000 0.100000 0.100000 1.000000
+$EnvGuiServer::SunFlareSize 1.41026
+$EnvGuiServer::VisibleDistance 250
+$EnvGuiServer::FogDistance 0
+$EnvGuiServer::FogHeight 
+$EnvGuiServer::FogColor 0.677570 0.668224 0.672897 1.000000
+$EnvGuiServer::WaterColor 255 255 255 128
+$EnvGuiServer::WaterHeight 5
+$EnvGuiServer::UnderWaterColor 0 0 128 128
+$EnvGuiServer::SkyColor 1.0 1.0 1.0 1.0
+$EnvGuiServer::WaterScrollX 0
+$EnvGuiServer::WaterScrollY 0
+$EnvGuiServer::GroundColor 0 128 64 255
+$EnvGuiServer::GroundScrollX 0
+$EnvGuiServer::GroundScrollY 0
+$EnvGuiServer::VignetteMultiply 0
+$EnvGuiServer::VignetteColor 0.000000 0.000000 0.000000 0.392157
+
+// Mini-Game
+$MiniGame::Enabled 1
+$MiniGame::GameColor 6
+$MiniGame::InviteOnly 0
+$MiniGame::IncludeAllPlayersBricks 1
+$MiniGame::PlayersUseOwnBricks 0
+
+$MiniGame::Points_BreakBrick 0
+$MiniGame::Points_PlantBrick 0
+$MiniGame::Points_KillPlayer 0
+$MiniGame::Points_KillSelf 0
+$MiniGame::Points_Die 0
+
+$MiniGame::RespawnTime -1
+$MiniGame::VehicleRespawnTime 5
+$MiniGame::BrickRespawnTime 0
+$MiniGame::TimeLimit 480
+
+$MiniGame::UseSpawnBricks 1
+$MiniGame::FallingDamage 1
+$MiniGame::WeaponDamage 1
+$MiniGame::SelfDamage 1
+$MiniGame::VehicleDamage 1
+$MiniGame::BrickDamage 0
+$MiniGame::EnableWand 0
+$MiniGame::EnableBuilding 0
+$MiniGame::EnablePainting 0
+
+$MiniGame::PlayerDataBlockName Murder Manor Player
+
+// Settings
+$Server::Quota::Schedules 1000
+$Server::QuotaLAN::Schedules 1000
