@@ -1,13 +1,9 @@
-// Game CHECK
-// Misc CHECK
-// Player CHECK
-// Chat CHECK
-// Character NEED APPEARANCE
-
 exec("./support/misc.cs");
+exec("./support/Support_ClientModuleS.cs");
 
 exec("./scripts/game.cs");
 exec("./scripts/misc.cs");
+exec("./scripts/net.cs");
 exec("./scripts/player.cs");
 exec("./scripts/character.cs");
 exec("./scripts/chat.cs");

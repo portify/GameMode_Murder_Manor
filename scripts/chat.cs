@@ -28,7 +28,7 @@ package MurderManorChatPackage
       %client.player.playThread(0, "talk");
       %client.player.schedule(strLen(%message) * 35, "playThread", 0, "root");
 
-      %tag = '\c3%1\c6: %2';
+      %tag = '\c3%1\c6 says, \'%2\'';
     }
     else
     {
@@ -51,7 +51,7 @@ package MurderManorChatPackage
         %name = %client.getPlayerName();
       }
 
-      if (%other.miniGame == $DefaultMiniGame && !isEventPending(%other.miniGame.scheduleReset) && isObject(%other.player))
+      if (%other.miniGame == $DefaultMiniGame && !isEventPending(%other.miniGame.resetSchedule) && isObject(%other.player))
       {
         if (%dead)
         {

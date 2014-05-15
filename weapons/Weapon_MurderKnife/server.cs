@@ -59,7 +59,7 @@ datablock ShapeBaseImageData(murderKnifeImage)
    //melee particles shoot from eye node for consistancy
    melee = false;
    //raise your arm up or not
-   armReady = true;
+   armReady = false;
 
    //casing = " ";
    doColorShift = true;
@@ -74,7 +74,7 @@ datablock ShapeBaseImageData(murderKnifeImage)
    				$TypeMasks::VehicleObjectType;	//Vehicles
    raycastExplosionProjectile = swordProjectile;
    raycastExplosionSound = "";
-   raycastDirectDamage = 50;
+   raycastDirectDamage = 35;
    raycastDirectDamageType = $DamageType::sword;
 
    // Images have a state system which controls how the animations
@@ -86,7 +86,7 @@ datablock ShapeBaseImageData(murderKnifeImage)
 
    // Initial start up state
 	stateName[0]					= "Activate";
-	stateTimeoutValue[0]			= 0.2;
+	stateTimeoutValue[0]			= 0.45;
 	stateTransitionOnTimeout[0]		= "Ready";
 	stateSequence[0]				= "ready";
 	// stateSound[0]					= swordDrawSound;
@@ -99,13 +99,13 @@ datablock ShapeBaseImageData(murderKnifeImage)
 
 	stateName[2]					= "PreFire";
 	stateScript[2]					= "onPreFire";
-	stateTimeoutValue[2]			= 0.1;
+	stateTimeoutValue[2]			= 0.2;
 	stateTransitionOnTimeout[2]		= "Fire";
 	stateAllowImageChange[2]		= false;
 
 	stateName[3]					= "Fire";
 	stateTransitionOnTimeout[3]		= "StopFire";
-	stateTimeoutValue[3]			= 0.1;
+	stateTimeoutValue[3]			= 0.3;
 	stateFire[3]					= true;
 	stateAllowImageChange[3]		= false;
 	stateSequence[3]				= "Fire";
@@ -122,12 +122,12 @@ datablock ShapeBaseImageData(murderKnifeImage)
 
 function murderKnifeImage::onPreFire(%this, %obj, %slot)
 {
-	// %obj.playthread(2, armattack);
+	%obj.playThread(0, "armReady");
 }
 
 function murderKnifeImage::onStopFire(%this, %obj, %slot)
 {
-
+  %obj.playThread(0, "root");
 }
 
 function murderKnifeImage::onFire(%this, %obj, %slot)

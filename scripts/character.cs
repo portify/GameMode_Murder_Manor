@@ -259,7 +259,7 @@ function getRandomHatName(%gender)
 
 function loadMurderManorNames()
 {
-  %pattern = "Add-Ons/GameMode_Murder_Manor/data/names/*.txt";
+  %pattern = "Add-Ons/GameMode_Murder_Manor/resources/names/*.txt";
   %fp = new FileObject();
 
   for (%file = findFirstFile(%pattern); %file !$= ""; %File = findNextFile(%pattern))

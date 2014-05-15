@@ -1,3 +1,32 @@
+function rgbToHsl(%rgb)
+{
+	%r = getWord(%rgb, 0);
+	%g = getWord(%rgb, 1);
+	%b = getWord(%rgb, 2);
+
+	%max = max3(%r, %g, %b);
+	%min = min3(%r, %g, %b);
+
+	%lightness = (%max + %min) / 2;
+
+	if (%max == %min)
+	{
+		return "0 0" SPC %lightness;
+	}
+
+	%delta = %max - %min;
+	%saturation = %lightness > 0.5 ? %delta / (2 - %max - %min) : %delta / (%max + %min);
+
+	switch (%max)
+	{
+		case %r: %hue = (%g - %b) / %delta + (%g < %b ? 6 : 0);
+		case %g: %hue = (%b - %r) / %delta + 2;
+		case %g: %hue = (%r - %g) / %delta + 4;
+	}
+
+	return %hue / 6 SPC %saturation SPC %lightness;
+}
+
 function blendRGBA(%bg, %fg) {
 	%ba = getWord(%bg, 3);
 	%fa = getWord(%fg, 3);
@@ -39,8 +68,18 @@ function min(%a, %b) {
 	return %a < %b ? %a : %b;
 }
 
-function max(%a, %b) {
+function min3(%a, %b, %c)
+{
+	return %a < %b ? (%a < %c ? %a : %c) : (%b < %c ? %b : %c);
+}
+
+function max(%a, %b, %c) {
 	return %a > %b ? %a : %b;
+}
+
+function max3(%a, %b, %c)
+{
+	return %a > %b ? (%a > %c ? %a : %c) : (%b > %c ? %b : %c);
 }
 
 function naturalGrammarList(%list) {

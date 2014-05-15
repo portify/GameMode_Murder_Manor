@@ -13,6 +13,7 @@ function MiniGameSO::endMurderManor(%this, %winner)
     %this.messageAll('', "\c3" @ %this.murdererName @ " \c5was the murderer this round.");
   }
 
+  commandToAll('MMC_StartRound', 15000);
   %this.scheduleReset(15000);
 }
 
@@ -100,10 +101,30 @@ package MurderManorGamePackage
     %empty = %this.numMembers < 1;
     Parent::addMember(%this, %member);
 
-    if (%this == $DefaultMiniGame && %empty)
+    if (%this != $DefaultMiniGame)
+    {
+      return;
+    }
+
+    if (%member.miniGame == %this)
+    {
+      commandToClient(%member, 'MMC_SetActive', 1);
+    }
+
+    if (%empty)
     {
       %member.clearMurderManorCharacter();
       %this.reset(0);
+    }
+  }
+
+  function MiniGameSO::removeMember(%this, %member)
+  {
+    Parent::removeMember(%this, %member);
+
+    if (%this == $DefaultMiniGame && %member.miniGame != %this)
+    {
+      commandToClient(%member, 'MMC_SetActive', 0);
     }
   }
 
@@ -120,6 +141,12 @@ package MurderManorGamePackage
     if (getSimTime() - %this.lastResetTime < 5000)
     {
       return;
+    }
+
+    if (isObject(DayCycle))
+    {
+      %time = $Sim::Time / DayCycle.dayLength;
+      DayCycle.setDayOffset(0 - (%time - mCeil(%time)));
     }
 
     // Now, it's important that we do this before the reset. As soon as the
@@ -151,23 +178,17 @@ package MurderManorGamePackage
         continue;
       }
 
-      if (%i)
+      if (%choices $= "")
       {
-        %choices = %choices SPC %member;
+        %choices = %member;
       }
       else
       {
-        %choices = %member;
+        %choices = %choices SPC %member;
       }
     }
 
     %murderer = getWord(%choices, getRandom(getWordCount(%choices) - 1));
-
-    if (!isObject(%murderer))
-    {
-      messageAll('', "ERROR: Cannot pick murderer");
-    }
-
     %murderer.isMurderer = 1;
 
     // Create characters!
@@ -185,6 +206,7 @@ package MurderManorGamePackage
 
     // Respawn everyone.
     Parent::reset(%this, %client);
+    commandToAll('MMC_StartRound', %this.timeLimit * 1000);
 
     // Random items!
     %name = "_randomItemSpawn";
@@ -311,7 +333,8 @@ package MurderManorGamePackage
 
       if (isObject(%client) && %client != %this && !%client.isMurderer)
       {
-        %client.setScore(%client.score + (%this.isMurderer ? 3 : -1), 1);
+        %client.karma += %this.isMurderer ? 3 : -1;
+        //%client.setScore(%client.score + (%this.isMurderer ? 3 : -1), 1);
       }
     }
 

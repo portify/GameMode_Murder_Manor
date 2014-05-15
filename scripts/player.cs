@@ -11,11 +11,15 @@ datablock PlayerData(PlayerMurderArmor : PlayerStandardArmor)
   maxTools = 3;
   mass = 120;
 
-  minImpactSpeed = 15;
-  speedDamageScale = 2.3;
+  //minImpactSpeed = 15;
+  minImpactSpeed = 18;
+  //speedDamageScale = 2.3;
+  speedDamageScale = 1.6;
 
   jumpEnergyDrain = 50;
   minJumpEnergy = 50;
+
+  jumpForce = 1200;
 };
 
 datablock PlayerData(PlayerMurderRunningArmor : PlayerMurderArmor)

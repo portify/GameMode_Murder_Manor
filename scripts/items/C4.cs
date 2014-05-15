@@ -32,17 +32,12 @@ function axisToEuler(%axis)
   return mRadToDeg(mAsin(%m23)) SPC mRadToDeg(mAtan(-%m13, %m33)) SPC mRadToDeg(mAtan(-%m21, %m22));
 }
 
-//-->Light key- Toggle timer
-//-->Right click- Detonate
-//-->left Click- Hold to increase timer
-//-->Hit bomb with a melee weapon to diffuse
-
 datablock ItemData(C4Item)
 {
   category = "Weapon";
   className = "Weapon";
   
-  shapeFile = "Add-Ons/GameMode_Murder/res/shapes/HoldC4n.dts";
+  shapeFile = "Add-Ons/GameMode_Murder_Manor/resources/shapes/HoldC4n.dts";
 
   mass = 1;
   density = 0.2;
@@ -53,40 +48,16 @@ datablock ItemData(C4Item)
   image = C4Image;
 
   uiName = "C4 Explosive";
-  iconName = "Add-Ons/GameMode_Murder/res/icons/icon_C4";
+  iconName = "Add-Ons/GameMode_Murder_Manor/resources/icons/icon_C4";
 };
 
 datablock ShapeBaseImageData(C4Image)
 {
-  shapeFile = "Add-Ons/GameMode_Murder/res/shapes/HoldC4n.dts";
+  shapeFile = "Add-Ons/GameMode_Murder_Manor/resources/shapes/HoldC4n.dts";
   mountPoint = 0;
   emap = 1;
   item = C4Item;
 };
-
-function GameConnection::C4Detonate(%client,%killer)
-{
-  if(!isObject(%client.c4))
-    return;
-  if(!%killer)
-    %killer = %client;
-  cancel(%client.c4tick);
-  %pos = %client.c4.getTransform();
-  %p = new Projectile()
-  {
-    dataBlock = C4ExplosionP;
-    initialPosition  = %pos;
-    initialVelocity = "0 0 0";
-    client = %killer;
-    sourceObject = %killer.player;
-  };
-  MissionCleanup.Add(%p);
-  %client.c4Timer = 1;
-  if(%client.c4.getClassName() $= "StaticShape")
-    %client.c4.delete();
-  else
-    %client.c4 = "";
-}
 
 function C4Image::onMount(%this, %obj, %slot)
 {
@@ -110,7 +81,7 @@ function C4Image::onUnMount(%this, %obj, %slot)
 
 datablock StaticShapeData(C4Shape)
 {
-  shapeFile = "Add-Ons/GameMode_Murder/res/shapes/C4e.dts";
+  shapeFile = "Add-Ons/GameMode_Murder_Manor/resources/shapes/C4e.dts";
 };
 
 datablock ParticleData(C4ExplosionParticle)
@@ -335,7 +306,7 @@ datablock ExplosionData(C4Explosion)
   impulseForce = 2500;
 };
 
-addDamageType("C4Damage", '<bitmap:Add-Ons/GameMode_Murder/res/icons/CI_C4> %1', '%2 <bitmap:Add-Ons/GameMode_Murder/res/icons/CI_C4> %1', 1, 0);
+addDamageType("C4Damage", '<bitmap:Add-Ons/GameMode_Murder_Manor/resources/icons/CI_C4> %1', '%2 <bitmap:Add-Ons/GameMode_Murder_Manor/resources/icons/CI_C4> %1', 1, 0);
 
 datablock ProjectileData(C4Projectile : RocketLauncherProjectile)
 {
