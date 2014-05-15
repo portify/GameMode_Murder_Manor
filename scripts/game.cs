@@ -108,7 +108,7 @@ package MurderManorGamePackage
 
     if (%member.miniGame == %this)
     {
-      commandToClient(%member, 'MMC_SetActive', 1);
+      // commandToClient(%member, 'MMC_SetActive', 1);
     }
 
     if (%empty)

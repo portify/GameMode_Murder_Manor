@@ -13,16 +13,16 @@ package MurderManorNetPackage
       return;
     }
 
-    %version = %this.moduleVersion["MM"];
+    // %version = %this.moduleVersion["MM"];
 
-    if (%version $= "")
-    {
-      %this.delete("You need the Murder Manor client to play on this server.\n<a:" @ $MM::ClientModuleURL @ ">Download it here</a>.");
-    }
-    else if (%version < $MM::ClientModuleVersion)
-    {
-      %this.delete("Your version of the Murder Manor client is outdated.\n<a:" @ $MM::ClientModuleURL @ ">Download the latest version here</a>.");
-    }
+    // if (%version $= "")
+    // {
+    //   %this.delete("You need the Murder Manor client to play on this server.\n<a:" @ $MM::ClientModuleURL @ ">Download it here</a>.");
+    // }
+    // else if (%version < $MM::ClientModuleVersion)
+    // {
+    //   %this.delete("Your version of the Murder Manor client is outdated.\n<a:" @ $MM::ClientModuleURL @ ">Download the latest version here</a>.");
+    // }
   }
 };
 

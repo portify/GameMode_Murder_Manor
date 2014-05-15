@@ -19,7 +19,7 @@ exec("./weapons/weapon_murderknife/server.cs");
 exec("./weapons/weapon_revolver/server.cs");
 
 $GenericWeapons::ShowAmmo = false;
-$GenericWeapons::Ammo = false;
+$GenericWeapons::Ammo = true;
 $GenericWeapons::ammoSystem = true;
 
 $GenericWeapons::MaxAmmo["357"] = 12;

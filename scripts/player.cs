@@ -13,8 +13,8 @@ datablock PlayerData(PlayerMurderArmor : PlayerStandardArmor)
 
   //minImpactSpeed = 15;
   minImpactSpeed = 18;
-  //speedDamageScale = 2.3;
-  speedDamageScale = 1.6;
+  speedDamageScale = 2.3;
+  // speedDamageScale = 1.6;
 
   jumpEnergyDrain = 50;
   minJumpEnergy = 50;
@@ -58,7 +58,7 @@ function PlayerMurderArmor::onDamage(%this, %obj, %damage)
   if (%obj.getDamagePercent() >= 0.7 && !%obj.playingHeartbeat)
   {
     %obj.playingHeartbeat = 1;
-    // %obj.playAudio(1, MurderHeartbeatLoopSound);
+    %obj.playAudio(1, MurderHeartbeatLoopSound);
   }
 }
 
@@ -66,7 +66,7 @@ function PlayerMurderArmor::onTrigger(%this, %obj, %slot, %state)
 {
   Parent::onTrigger(%this, %obj, %slot, %state);
 
-  if (%slot == 4 && %state && 0)
+  if (%slot == 4 && %state)
   {
     %obj.changeDataBlock(PlayerMurderRunningArmor);
     %obj.monitorEnergyLevel();
@@ -146,7 +146,8 @@ package MurderManorPlayerPackage
 {
   function serverCmdLight(%client)
   {
-    if (%client.miniGame != $DefaultMiniGame)
+    %image = %client.player.getMountedImage(0);
+    if (%client.miniGame != $DefaultMiniGame || %client.player.toolMag[%player.currTool] < %image.item.maxmag)
     {
       Parent::serverCmdLight(%client);
     }
@@ -154,10 +155,10 @@ package MurderManorPlayerPackage
 
   function serverCmdDropTool(%client, %slot)
   {
-    if (%client.miniGame != $DefaultMiniGame)
-    {
+    // if (%client.miniGame != $DefaultMiniGame)
+    // {
       Parent::serverCmdDropTool(%client, %slot);
-    }
+    // }
   }
 
   function GameConnection::spawnPlayer(%this)
@@ -173,8 +174,8 @@ package MurderManorPlayerPackage
     %obj.setShapeNameDistance(0);
     %obj.murderManorTick();
 
-    //%obj.schedule(30000, "updateAFKKiller");
-    %obj.schedule(50, "updateAFKKiller");
+    %obj.schedule(30000, "updateAFKKiller");
+    // %obj.schedule(50, "updateAFKKiller");
     %this.schedule(0, "updateMurderStatus");
 
     if (%this.isMurderer)
@@ -189,6 +190,11 @@ package MurderManorPlayerPackage
 
       %obj.tool[1] = nameToID(%tool[getRandom(%high)]);
       messageClient(%this, 'MsgItemPickup', '', 1, %obj.tool[1], 1);
+    }
+    if (%this.role == $Role::Detective)
+    {
+      %obj.tool[0] = nameToID("coltPythonItem");
+      messageClient(%this, 'MsgItemPickup', '', 0, %obj.tool[0], 1);
     }
   }
 
