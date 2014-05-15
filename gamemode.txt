@@ -86,7 +86,7 @@ ADDON Brick_PrintPlatesCeiling
 ADDON Brick_Round_Corners
 ADDON Brick_ShortRangeMusic
 ADDON Brick_SmallRampsPack
-ADDON Brick_SmallVehicleSpawnSet
+// ADDON Brick_SmallVehicleSpawnSet
 ADDON Brick_Spiderwebs
 ADDON Brick_Teledoor
 ADDON Brick_ThickPoles
