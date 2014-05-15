@@ -1,5 +1,8 @@
 exec("./support/misc.cs");
 exec("./support/Support_ClientModuleS.cs");
+exec("./support/spread.cs");
+exec("./support/raycasts.cs");
+exec("./support/ammosystem.cs");
 
 exec("./scripts/game.cs");
 exec("./scripts/misc.cs");
@@ -13,6 +16,15 @@ exec("./scripts/items/C4.cs");
 
 exec("./weapons/weapon_clushido/server.cs");
 exec("./weapons/weapon_murderknife/server.cs");
+exec("./weapons/weapon_revolver/server.cs");
+
+$GenericWeapons::ShowAmmo = false;
+$GenericWeapons::Ammo = false;
+$GenericWeapons::ammoSystem = true;
+
+$GenericWeapons::MaxAmmo["357"] = 12;
+$GenericWeapons::AddAmmo["357"] = 6;
+$GenericWeapons::StarterAmmo["357"] = 6;
 
 $Pref::HatMod::SaveLoc = "";
 $Pref::HatMod::RandomHats = 0;
